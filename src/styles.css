@@ -1,0 +1,254 @@
+/* Основные стили для обертки */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px; /* Круглые границы */
+    color: #FFFFFF; /* Основной текст белого цвета */
+}
+
+.sort-options, .tag-filter, .books-list, h1 {
+    background-color: #333333; /* Темный цвет обертки для элементов */
+    padding: 15px;
+    border-radius: 15px; /* Круглые границы */
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Стили для контейнера сортировки */
+.sort-options {
+    display: flex;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    justify-content: space-between;
+}
+
+
+/* Стили для кнопок сортировки */
+.sort-option {
+    display: inline-flex;
+    align-items: center; /* Выравнивание текста и стрелки по центру */
+    margin: 0 10px;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sort-option .arrow {
+    margin-left: 10px; /* Отступ для стрелки */
+    transition: transform 0.3s ease;
+}
+
+.sort-option.active {
+    font-weight: bold;
+    background-color: #BFBFBF; /* Цвет активной кнопки */
+}
+
+.arrow {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.arrow.asc {
+    transform: rotate(180deg);
+}
+
+/* Стили для выпадающего списка тегов */
+.tag-filter-container {
+    position: relative;
+}
+
+.tag-filter {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #444444;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.tag-filter:after {
+    content: "▼"; /* Добавляем стрелку вниз */
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.tag-filter-container.open .tag-filter:after {
+    transform: rotate(180deg); /* Поворот стрелки при открытии списка */
+}
+
+.tag-filter-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(max-content, 1fr)); /* Колонки будут одинакового размера, учитывая самый длинный элемент */
+    gap: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #333333;
+    border-radius: 10px;
+    max-height: none; /* Убираем ограничение высоты */
+    overflow: visible; /* Убираем скролл */
+    z-index: 1;
+    width: max-content;
+    padding: 10px; /* Добавляем отступ внутри контейнера */
+}
+
+.tag-filter.open .tag-filter-options {
+    display: block;
+}
+
+.tag {
+    display: block;
+    padding: 10px 20px;
+    background-color: #938888;
+    color: #000000;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tag.selected {
+    background-color: #888888; /* Более тёмный цвет для активного тега */
+    color: #FFFFFF; /* Белый текст для выбранного тега */
+}
+
+.tag:hover {
+    background-color: #D8D8D8; /* Более темный светлый цвет при наведении */
+}
+
+/* Стили для списка книг */
+.books-list li {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #444444; /* Темный цвет фона для книг */
+    border-radius: 10px;
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.books-list li > div {
+    margin-bottom: 5px;
+}
+
+.total-price {
+    display: flex;
+    margin-left: 10px;
+}
+
+/* Сброс тегов */
+.reset-button {
+    padding: 10px 20px;
+    background-color: #F0F0F0;
+    color: #000000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #D8D8D8;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.arrow.asc {
+    transform: rotate(180deg);
+}
+
+.container {
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.sort-option, .reset-button, .tag-filter-container {
+    flex: 1 1 auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.books-list {
+    list-style: none;
+    padding: 15px;
+}
+
+.books-list li {
+    padding: 10px;
+}
+
+.total-price {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+@media (max-width: 750px) {
+    .sort-option, .reset-button, .tag-filter-container {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tag-filter-options {
+        display: flex;
+        flex-direction: column
+    }
+
+}
+
+.sort-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sort-option {
+    flex: 1 1 auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.sort-option .arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.sort-option .asc {
+    transform: rotate(180deg);
+}
+
+.sort-option.reset .arrow {
+    display: none;
+}
+
+.tag-filter-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.tag-filter-options .tag {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.tag-filter-options .tag.selected {
+    background-color: #e0e0e0;
+}
+
